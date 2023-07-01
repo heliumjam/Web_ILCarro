@@ -1,0 +1,4 @@
+16:06:26.137 INFO  tests.TestBase -%PARSER_ERROR[kvp]- openRegistrationForm invoked
+16:06:26.810 INFO  tests.TestBase -%PARSER_ERROR[kvp]- fillRegForm invoked
+16:06:26.849 INFO  tests.TestBase -%PARSER_ERROR[kvp]- submitLogin Invoked
+16:06:26.849 INFO  tests.TestBase -%PARSER_ERROR[kvp]- /nPositiveRegTest successfully with credentials: Email: domes386@mail.com & Password: 123456Aa$W

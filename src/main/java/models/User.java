@@ -34,10 +34,10 @@ public class User {
         return password;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -49,6 +49,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
     public User withName(String name) {
         this.name = name;
         return this;
