@@ -8,12 +8,14 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestNgListener.class)
+
 public class AddNewCar extends TestBase{
     @BeforeMethod
     public void precondition(){
 
-        if(app.getUser().isLogged()==false)
-            app.getUser().login(new User()
+
+        if(app.getHelperUser().isLogged()==false)
+            app.getHelperUser().login(new User()
                     .withEmail("domes7@mail.com")
                     .withPassword("123456Aa$"));
     }
@@ -33,9 +35,9 @@ public class AddNewCar extends TestBase{
                 .price("150")
                 .about("333")
                 .build();
-        app.getCar().openCarForm();
-        app.getCar().fillCarForm(car);
-        app.getUser().submitLogin();
+        app.getHelperCar().openCarForm();
+        app.getHelperCar().fillCarForm(car);
+        app.getHelperUser().submitLogin();
     }
 
 

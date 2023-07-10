@@ -9,11 +9,13 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestNgListener.class)
+
 public class LoginTests extends TestBase {
 @BeforeMethod
 public void precondition(){
-    if(app.getUser().isLogged())
-        app.getUser().logout();
+    System.out.println("lkjdfajlskdjf");
+    if(app.getHelperUser().isLogged())
+        app.getHelperUser().logout();
 }
 
     @Test
@@ -24,38 +26,40 @@ public void precondition(){
         User user = new User()
                 .withEmail("domes7@mail.com")
                 .withPassword("123456Aa$");
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm(user);
-        app.getUser().submitLogin();
-        Assert.assertTrue(app.getUser().isLoggedSuccess());
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submitLogin();
 
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
     }
+
+
     @Test
     public void loginNegativeWrongEmail() {
         User user = new User()
                 .withEmail("domesmail.com")
                 .withPassword("123456Aa$");
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm(user);
-        app.getUser().submitLogin();
-        Assert.assertTrue(app.getUser().isLoggedFailure());
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLoggedFailure());
     }
     @Test
     public void loginNegativeWrongEmail2() {
         User user = new User()
                 .withEmail("domes@mail.com")
                 .withPassword("123456Aa$");
-        app.getUser().openLoginForm();
-        app.getUser().fillLoginForm(user);
-        app.getUser().submitLogin();
-        Assert.assertTrue(app.getUser().isLoggedFailure());
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLoggedFailure());
     }
 @AfterMethod
 public void postcondition(){
-    if(app.getUser().isLoggedSuccess() == true
-    || app.getUser().isLoggedFailure() == true);
+    if(app.getHelperUser().isLoggedSuccess() == true
+    || app.getHelperUser().isLoggedFailure() == true);
     {
-    app.getUser().clickOkButton();
+    app.getHelperUser().clickOkButton();
     }
 }
 }

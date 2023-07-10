@@ -15,8 +15,6 @@ public class HelperBase {
 //    Logger logger = LoggerFactory.getLogger(HelperBase.class);
 
 
-
-
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }

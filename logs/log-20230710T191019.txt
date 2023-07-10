@@ -1,0 +1,137 @@
+19:10:22 INFO  manager.ApplicationManager - Tests Using Firefox
+19:10:24 INFO  tests.TestBase - Method loginNegativeWrongEmail is started 
+19:10:24 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:10:29 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:10:29 INFO  manager.TestNgListener - Test loginNegativeWrongEmail invoked
+19:10:29 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Log in ']
+19:10:29 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Log in '] is found
+19:10:29 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:10:29 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:10:29 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:10:29 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:10:30 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:10:30 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:10:30 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'incorrect')]
+19:10:31 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'incorrect')] is found
+19:10:31 INFO  manager.TestNgListener - Test loginNegativeWrongEmail successful
+19:10:31 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:10:36 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:10:36 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'incorrect')]
+19:10:36 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'incorrect')] is found
+19:10:36 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='button']
+19:10:36 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='button'] is found
+19:10:36 INFO  tests.TestBase - =====================end==method======================== 
+19:10:36 INFO  tests.TestBase - Method loginNegativeWrongEmail2 is started 
+19:10:36 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:10:41 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:10:41 INFO  manager.TestNgListener - Test loginNegativeWrongEmail2 invoked
+19:10:41 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Log in ']
+19:10:41 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Log in '] is found
+19:10:41 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:10:41 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:10:41 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:10:41 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:10:41 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:10:41 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:10:41 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'incorrect')]
+19:10:42 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'incorrect')] is found
+19:10:42 INFO  manager.TestNgListener - Test loginNegativeWrongEmail2 successful
+19:10:42 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:10:47 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:10:47 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'incorrect')]
+19:10:47 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'incorrect')] is found
+19:10:47 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='button']
+19:10:47 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='button'] is found
+19:10:47 INFO  tests.TestBase - =====================end==method======================== 
+19:10:47 INFO  tests.TestBase - Method loginPositiveUser is started 
+19:10:47 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:10:52 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:10:52 INFO  manager.TestNgListener - Test loginPositiveUser invoked
+19:10:52 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Log in ']
+19:10:52 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Log in '] is found
+19:10:52 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:10:52 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:10:52 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:10:52 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:10:53 INFO  manager.TestNgListener - Test loginPositiveUser successful
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='button']
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='button'] is found
+19:10:53 INFO  tests.TestBase - =====================end==method======================== 
+19:10:53 INFO  tests.TestBase - Method NegativeRegTestWrongEmail is started 
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:10:53 INFO  manager.TestNgListener - Test NegativeRegTestWrongEmail invoked
+19:10:53 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Sign up ']
+19:10:53 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Sign up '] is found
+19:10:54 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='name'])
+19:10:54 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='name']) is found
+19:10:54 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='lastName'])
+19:10:54 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='lastName']) is found
+19:10:54 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:10:54 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:10:54 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:10:54 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:10:54 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:10:54 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:10:56 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:11:01 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:11:01 INFO  tests.TestBase - NegativeRegTestWrongEmail successfully with credentials: Email: domes653mail.com & Password: 123456Aa$W
+19:11:01 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='button']
+19:11:01 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='button'] is found
+19:11:01 INFO  manager.TestNgListener - Test NegativeRegTestWrongEmail successful
+19:11:01 INFO  tests.TestBase - =====================end==method======================== 
+19:11:01 INFO  tests.TestBase - Method NegativeRegTestWrongPassword is started 
+19:11:01 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:11:06 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:11:06 INFO  manager.TestNgListener - Test NegativeRegTestWrongPassword invoked
+19:11:06 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Sign up ']
+19:11:06 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Sign up '] is found
+19:11:07 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='name'])
+19:11:07 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='name']) is found
+19:11:07 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='lastName'])
+19:11:07 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='lastName']) is found
+19:11:07 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:11:07 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:11:07 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:11:07 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:11:07 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:11:07 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:11:09 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //div[contains(text(),'Password must contain')]
+19:11:09 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //div[contains(text(),'Password must contain')] is found
+19:11:09 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='button']
+19:11:09 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='button'] is found
+19:11:09 INFO  tests.TestBase - NegativeRegTestWrongPassword successfully with credentials: Email: domes666@mail.com & Password: 123456Aa
+19:11:09 INFO  manager.TestNgListener - Test NegativeRegTestWrongPassword successful
+19:11:09 INFO  tests.TestBase - =====================end==method======================== 
+19:11:09 INFO  tests.TestBase - Method PositiveRegTest is started 
+19:11:09 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Logout ']
+19:11:14 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Logout '] is found
+19:11:14 INFO  manager.TestNgListener - Test PositiveRegTest invoked
+19:11:14 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //*[.=' Sign up ']
+19:11:14 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //*[.=' Sign up '] is found
+19:11:14 INFO  tests.TestBase - openRegistrationForm invoked
+19:11:14 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='name'])
+19:11:14 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='name']) is found
+19:11:15 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='lastName'])
+19:11:15 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='lastName']) is found
+19:11:15 INFO  manager.WebDriverListener - Start searching element -> By.xpath: (//input[@id='email'])
+19:11:15 INFO  manager.WebDriverListener - Element with locator -> By.xpath: (//input[@id='email']) is found
+19:11:15 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //input[@id='password']
+19:11:15 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //input[@id='password'] is found
+19:11:15 INFO  tests.TestBase - fillRegForm invoked
+19:11:16 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //button[@type='submit']
+19:11:16 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //button[@type='submit'] is found
+19:11:16 INFO  tests.TestBase - submitLogin Invoked
+19:11:16 INFO  manager.WebDriverListener - Start searching element -> By.xpath: //h2[contains(text(),'success')]
+19:11:16 INFO  manager.WebDriverListener - Element with locator -> By.xpath: //h2[contains(text(),'success')] is found
+19:11:16 INFO  tests.TestBase - PositiveRegTest successfully with credentials: Email: domes674@mail.com & Password: 123456Aa$W
+19:11:16 INFO  manager.TestNgListener - Test PositiveRegTest successful
+19:11:16 INFO  tests.TestBase - =====================end==method======================== 

@@ -24,3 +24,20 @@ dependencies {
 test {
     useTestNG()
 }
+task myTest(type:Test){
+    useTestNG() {
+        def suite = System.getProperty('suite', '')
+        if (suite.equals('user')){
+            suites '/src/test/resources/user.xml'
+        }
+        else if (suite.equals('caradd')){
+            suites '/src/test/resources/caradd.xml'
+        }
+        else {
+            suites'/src/test/resources/testng.xml'
+        }
+    }
+    if(project.hasProperty('browser')){
+        systemProperty'browser',"$browser"
+    }
+}

@@ -1,11 +1,7 @@
 package tests;
 
-import manager.HelperBase;
-import manager.HelperUser;
 import manager.TestNgListener;
 import models.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,7 +12,7 @@ import org.testng.annotations.Test;
 public class RegistrationTests extends TestBase{
     @BeforeMethod
     public void precondition() {
-        if(app.getUser().isLogged()) app.getUser().logout();
+        if(app.getHelperUser().isLogged()) app.getHelperUser().logout();
     }
 
     @Test
@@ -27,14 +23,14 @@ public class RegistrationTests extends TestBase{
                 .withLastName("TestLastName")
                 .withEmail("domes"+i+"@mail.com")
                 .withPassword("123456Aa$W");
-    app.getUser().openRegistrationForm();
+    app.getHelperUser().openRegistrationForm();
             logger.info("openRegistrationForm invoked");
-    app.getUser().fillRegForm(user);
+    app.getHelperUser().fillRegForm(user);
             logger.info("fillRegForm invoked");
-        app.getUser().pause(1000);
-    app.getUser().submitLogin();
+        app.getHelperUser().pause(1000);
+    app.getHelperUser().submitLogin();
             logger.info("submitLogin Invoked");
-        Assert.assertTrue(app.getUser().isLoggedSuccess());
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
 
         logger.info("PositiveRegTest successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
@@ -49,14 +45,14 @@ public class RegistrationTests extends TestBase{
                 .withLastName("TestLastName")
                 .withEmail("domes"+i+"mail.com")
                 .withPassword("123456Aa$W");
-        app.getUser().openRegistrationForm();
-        app.getUser().fillRegForm(user);
-        app.getUser().submitLogin();
-        app.getUser().pause(2000);
-        Assert.assertFalse(app.getUser().isLoggedSuccess());
+        app.getHelperUser().openRegistrationForm();
+        app.getHelperUser().fillRegForm(user);
+        app.getHelperUser().submitLogin();
+        app.getHelperUser().pause(2000);
+        Assert.assertFalse(app.getHelperUser().isLoggedSuccess());
         logger.info("NegativeRegTestWrongEmail successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
-        app.getUser().clickOkButton();
+        app.getHelperUser().clickOkButton();
 
     }
 
@@ -68,12 +64,12 @@ public class RegistrationTests extends TestBase{
                 .withLastName("TestLastName")
                 .withEmail("domes"+i+"@mail.com")
                 .withPassword("123456Aa");
-        app.getUser().openRegistrationForm();
-        app.getUser().fillRegForm(user);
-        app.getUser().submitLogin();
-        app.getUser().pause(2000);
-       Assert.assertTrue(app.getUser().isPasswordWrong());
-        app.getUser().clickOkButton();
+        app.getHelperUser().openRegistrationForm();
+        app.getHelperUser().fillRegForm(user);
+        app.getHelperUser().submitLogin();
+        app.getHelperUser().pause(2000);
+       Assert.assertTrue(app.getHelperUser().isPasswordWrong());
+        app.getHelperUser().clickOkButton();
         logger.info("NegativeRegTestWrongPassword successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
     }
