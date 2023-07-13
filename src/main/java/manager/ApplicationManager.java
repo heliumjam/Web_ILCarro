@@ -5,6 +5,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterSuite;
@@ -19,17 +20,24 @@ public class ApplicationManager {
     HelperUser helperUser;
     HelperCar helperCar;
     String browser;
+    WebDriverWait wait;
+    HelperSearch helperSearch;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
     }
 
+    public WebDriverWait getWait() {return wait;}
     public HelperUser getHelperUser() {
         return helperUser;
     }
 
     public HelperCar getHelperCar() {
         return helperCar;
+    }
+
+    public HelperSearch getHelperSearch() {
+        return helperSearch;
     }
 
     @BeforeSuite
@@ -48,14 +56,17 @@ public class ApplicationManager {
         wd.register(new WebDriverListener()); // connection LISTENER
         helperUser = new HelperUser(wd);
         helperCar = new HelperCar(wd);
+        helperSearch = new HelperSearch(wd);
      //   wd.manage().window().maximize();
         wd.navigate().to("https://ilcarro.web.app/search");
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(wd, 90);
+        // make this wait TODO
     }
 
 
     @AfterSuite
     public void tearDown(){
-      wd.quit();
+    //  wd.quit();
     }
 }

@@ -10,12 +10,12 @@ import org.testng.annotations.Test;
 
 @Listeners(TestNgListener.class)
 public class RegistrationTests extends TestBase{
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void precondition() {
         if(app.getHelperUser().isLogged()) app.getHelperUser().logout();
     }
 
-    @Test
+    @Test (groups = {"smoke","positive"})
     public void PositiveRegTest(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
@@ -37,7 +37,7 @@ public class RegistrationTests extends TestBase{
     }
 
 
-    @Test
+    @Test (groups = {"regress","negative"})
     public void NegativeRegTestWrongEmail(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
@@ -56,7 +56,7 @@ public class RegistrationTests extends TestBase{
 
     }
 
-    @Test
+    @Test (groups = {"regress","negative"})
     public void NegativeRegTestWrongPassword(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
@@ -74,7 +74,7 @@ public class RegistrationTests extends TestBase{
                 + user.getEmail() + " & Password: " + user.getPassword());
     }
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void postcondition() {
     }
 }

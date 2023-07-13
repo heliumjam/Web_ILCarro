@@ -26,6 +26,11 @@ test {
 }
 task myTest(type:Test){
     useTestNG() {
+        def groups = System.getProperty('groups')
+        if (groups != null){
+            includeGroups groups
+        }
+
         def suite = System.getProperty('suite', '')
         if (suite.equals('user')){
             suites '/src/test/resources/user.xml'
