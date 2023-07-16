@@ -64,9 +64,12 @@ public class ApplicationManager {
         // make this wait TODO
     }
 
+    public void navigateToMainPage() {
+        wd.navigate().to("https://ilcarro.web.app/");
+    }
 
     @AfterSuite
     public void tearDown(){
-    //  wd.quit();
+      wd.quit();
     }
 }

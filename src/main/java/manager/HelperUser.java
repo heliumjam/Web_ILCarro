@@ -51,7 +51,6 @@ public class HelperUser extends HelperBase {
 
 
     public void clickTermsOfUse() {
-        System.out.println("clickCheckbox");
         //var1
             // click(By.cssSelector("label[for='terms-of-use']"));
         //var2 JS Interface

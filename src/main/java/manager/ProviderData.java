@@ -1,10 +1,9 @@
 package manager;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import models.User;
 import org.testng.annotations.*;
 
+import java.io.*;
 import java.util.*;
 
 
@@ -27,10 +26,25 @@ public class ProviderData{
         return list.iterator();
     }
 
-//@DataProvider
-//public Iterator<Object[]> carSearchLocation(){
-//
-//}
+    @DataProvider
+    public Iterator<Object[]> userRegDtoCSV() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\heliu\\Documents\\IT\\GitHub\\ILCarro\\src\\test\\resources\\reg_dataList.csv")));
+       String line = reader.readLine();
+       while (line != null){
+           String [] split = line.split(",");
+           list.add(new Object[]{new User()
+                   .withName(split[0])
+                   .withLastName(split[1])
+                   .withEmail(split[2])
+                   .withPassword(split[3])
+       });
+
+        line = reader.readLine();
+       }
+        return list.iterator();
+    }
+
 
 @DataProvider
     public Iterator<Object[]> userDtoNegEmail(){

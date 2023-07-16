@@ -12,6 +12,7 @@ repositories {
 dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     implementation group: 'org.testng', name: 'testng', version: '7.4.0'
+
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
@@ -35,7 +36,7 @@ task myTest(type:Test){
         if (suite.equals('user')){
             suites '/src/test/resources/user.xml'
         }
-        else if (suite.equals('caradd')){
+        else if (suite.equals('car')){
             suites '/src/test/resources/caradd.xml'
         }
         else {

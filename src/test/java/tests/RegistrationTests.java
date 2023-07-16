@@ -1,5 +1,6 @@
 package tests;
 
+import manager.ProviderData;
 import manager.TestNgListener;
 import models.User;
 import org.testng.Assert;
@@ -36,6 +37,20 @@ public class RegistrationTests extends TestBase{
                 + user.getEmail() + " & Password: " + user.getPassword());
     }
 
+    @Test (dataProvider = "userRegDtoCSV",dataProviderClass = ProviderData.class)
+    public void PositiveRegDTOTest(User user){
+        app.getHelperUser().openRegistrationForm();
+        logger.info("openRegistrationForm invoked");
+        app.getHelperUser().fillRegForm(user);
+        logger.info("fillRegForm invoked");
+        app.getHelperUser().pause(1000);
+        app.getHelperUser().submitLogin();
+        logger.info("submitLogin Invoked");
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
+
+        logger.info("PositiveRegTest successfully with credentials: Email: "
+                + user.getEmail() + " & Password: " + user.getPassword());
+    }
 
     @Test (groups = {"regress","negative"})
     public void NegativeRegTestWrongEmail(){
@@ -76,5 +91,6 @@ public class RegistrationTests extends TestBase{
 
     @AfterMethod (alwaysRun = true)
     public void postcondition() {
+        app.navigateToMainPage();
     }
 }
