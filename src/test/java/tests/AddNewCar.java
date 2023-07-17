@@ -12,13 +12,14 @@ import org.testng.annotations.Test;
 public class AddNewCar extends TestBase{
     @BeforeMethod (alwaysRun = true)
     public void precondition(){
-        if(app.getHelperUser().isLogged()==false)
+        if(!app.getHelperUser().isLogged()){
             app.getHelperUser().login(new User()
                     .withEmail("domes7@mail.com")
                     .withPassword("123456Aa$"));
+        app.getHelperUser().clickOkButton(app.getWait());}
     }
 
-    @Test (groups = {"smoke","positive"})
+    @Test (groups = {"regress","positive"})
     public void addNewCarPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         Car car = Car.builder()

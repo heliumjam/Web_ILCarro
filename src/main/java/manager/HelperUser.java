@@ -1,12 +1,10 @@
 package manager;
 
 import models.User;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Rectangle;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class HelperUser extends HelperBase {
@@ -16,6 +14,7 @@ public class HelperUser extends HelperBase {
         super(wd);
     }
 
+    WebElement element;
 
     public void openLoginForm() {
  //       wd.findElement(By.xpath("//a[text()=' Log in ']")).click();
@@ -81,8 +80,14 @@ public class HelperUser extends HelperBase {
         return isElementPresent(By.xpath("//*[.=' Logout ']"));
     }
 
-    public void clickOkButton(){
-        click(By.xpath("//button[@type='button']"));
+    public void clickOkButton(WebDriverWait wait){
+        element =
+                wait.until(ExpectedConditions
+                        .visibilityOfElementLocated(By.xpath("//button[@type='button']")));
+        element.click();
+
+//        pause(500);
+//        click(By.xpath("//button[@type='button']"));
     }
 
     public boolean isLoggedSuccess(){
@@ -103,7 +108,6 @@ public class HelperUser extends HelperBase {
         openLoginForm();
         fillLoginForm(user);
         submitLogin();
-        clickOkButton();
     }
 
 }

@@ -11,7 +11,7 @@ public class ProviderData{
 
 
     @DataProvider
-    public Iterator<Object[]> userDto(){
+    public Iterator<Object[]> userDtoLogin(){
         List<Object[]> list = new ArrayList<>();
         list.add(new Object[]{new User()
                 .withEmail("domes7@mail.com")
@@ -19,8 +19,13 @@ public class ProviderData{
             }
         );
         list.add(new Object[]{new User()
-                .withEmail("domes7@mail.com")
-                .withPassword("123456Aa$")
+                .withEmail("dan1h9433@mail.com")
+                .withPassword("123456789$Aa")
+            }
+        );        
+		list.add(new Object[]{new User()
+                .withEmail("dan1094455@mail.com")
+                .withPassword("123456790$Aa")
             }
         );
         return list.iterator();
@@ -29,7 +34,8 @@ public class ProviderData{
     @DataProvider
     public Iterator<Object[]> userRegDtoCSV() throws IOException {
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\heliu\\Documents\\IT\\GitHub\\ILCarro\\src\\test\\resources\\reg_dataList.csv")));
+        BufferedReader reader = new BufferedReader(
+                new FileReader(new File("C:\\Users\\heliu\\Documents\\IT\\GitHub\\ILCarro\\src\\test\\resources\\reg_dataList.csv")));
        String line = reader.readLine();
        while (line != null){
            String [] split = line.split(",");
@@ -47,7 +53,7 @@ public class ProviderData{
 
 
 @DataProvider
-    public Iterator<Object[]> userDtoNegEmail(){
+    public Iterator<Object[]> userDtoNeg(){
         List<Object[]> list = new ArrayList<>();
             list.add(new Object[]{new User()
                             .withEmail("domesmail.com")
@@ -55,10 +61,31 @@ public class ProviderData{
                     }
             );
             list.add(new Object[]{new User()
-                            .withEmail("domes7@mailcom")
+                            .withEmail("domes77777@mailcom")
                             .withPassword("123456Aa$")
                     }
             );
+			list.add(new Object[]{new User()
+                            .withEmail("domes77777@mailcom")
+                            .withPassword("1234561a$")
+                    }
+            );
+			list.add(new Object[]{new User()
+                            .withEmail("domes77777@mail.com")
+                            .withPassword("12345678Aa")
+                    }
+            );
+			list.add(new Object[]{new User()
+                            .withEmail("domes77777@mail.com")
+                            .withPassword("12345678A$")
+                    }
+            );
+			list.add(new Object[]{new User()
+                            .withEmail("domes77777@mail.com")
+                            .withPassword("1Aa$")
+                    }							
+            );
+					
         return list.iterator();
     }
 //    @DataProvider

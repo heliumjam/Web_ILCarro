@@ -2,16 +2,22 @@ package tests;
 
 import manager.TestNgListener;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 @Listeners(TestNgListener.class)
 
 public class SearchTests extends TestBase{
 String location = "Tel Aviv";
 
-    @Test (groups = {"smoke","positive"})
+@BeforeMethod
+public void precondition() {
+
+    app.tearDown();
+    app.init();
+    app.navigateToMainPage();
+}
+
+    @Test (groups = {"regress","positive"})
     public void findCarPasteGeneratedDates(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -20,7 +26,7 @@ String location = "Tel Aviv";
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"smoke","positive"})
+   @Test (groups = {"regress","positive"})
     public void findCarInThisMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -29,7 +35,7 @@ String location = "Tel Aviv";
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"smoke","positive"})
+    @Test (groups = {"regress","positive"})
     public void findCarInNextMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -38,18 +44,16 @@ String location = "Tel Aviv";
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test
+    @Test (groups = {"regress","positive"})
     public void searchPositiveTestL(){
         app.getHelperSearch().fillSearchFormLesson("Tel Aviv", "07/20/2023","03/30/2024");
         app.getHelperSearch().clickSubmitYallaButtom(app.getWait());
 
     }
 
-
-    @AfterMethod(alwaysRun = true)
-    public void postcondition() {
-        app.navigateToMainPage();
-        app.getHelperSearch().clearInput();
+    @AfterTest
+    public void postTests(){
+    app.tearDown();
     }
 //@Test
 //    public void dateTest(){

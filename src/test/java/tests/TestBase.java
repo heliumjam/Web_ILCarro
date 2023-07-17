@@ -15,7 +15,7 @@ public class TestBase {
             System.getProperty("browser", BrowserType.CHROME)
     );
 
-    @BeforeSuite
+    @BeforeSuite()
     public void setUp(){
         app.init();
 

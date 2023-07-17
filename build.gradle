@@ -25,20 +25,33 @@ dependencies {
 test {
     useTestNG()
 }
-task myTest(type:Test){
-    useTestNG() {
+
+task myTest (type:Test){
+    useTestNG(){
         def groups = System.getProperty('groups')
         if (groups != null){
             includeGroups groups
         }
 
-        def suite = System.getProperty('suite', '')
-        if (suite.equals('user')){
+        def suite = System.getProperty('suite','')
+        if (suite.equals('addcar')){
+            suites '/src/test/resources/addcar.xml'
+        }
+        else if (suite.equals('searchcar')){
+            suites '/src/test/resources/searchcar.xml'
+        }
+        else if (suite.equals('user')){
             suites '/src/test/resources/user.xml'
         }
-        else if (suite.equals('car')){
-            suites '/src/test/resources/caradd.xml'
-        }
+//        else if (suite.equals('negative')){
+//            suites '/src/test/resources/negative.xml'
+//        }
+//        else if (suite.equals('positive')){
+//            suites '/src/test/resources/positive.xml'
+//        }
+//        else if (suite.equals('regress')){
+//            suites '/src/test/resources/regress.xml'
+//        }
         else {
             suites'/src/test/resources/testng.xml'
         }
@@ -46,4 +59,5 @@ task myTest(type:Test){
     if(project.hasProperty('browser')){
         systemProperty'browser',"$browser"
     }
+
 }

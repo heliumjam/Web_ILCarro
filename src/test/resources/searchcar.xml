@@ -3,7 +3,6 @@
 <suite name="ProductionCarSuite" verbose="1" >
     <test name="CarTests" >
         <classes>
-            <class name="tests.AddNewCar"/>
             <class name="tests.SearchTests"/>
         </classes>
     </test>

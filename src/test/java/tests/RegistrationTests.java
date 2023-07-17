@@ -15,8 +15,42 @@ public class RegistrationTests extends TestBase{
     public void precondition() {
         if(app.getHelperUser().isLogged()) app.getHelperUser().logout();
     }
+	
+	    @Test (dataProvider = "userRegDtoCSV",
+                dataProviderClass = ProviderData.class)
+         public void PositiveRegDTOCSVTest(User user){
+        app.getHelperUser().openRegistrationForm();
+        logger.info("openRegistrationForm invoked");
+        app.getHelperUser().fillRegForm(user);
+        logger.info("fillRegForm invoked");
+        app.getHelperUser().pause(1000);
+        app.getHelperUser().submitLogin();
+        logger.info("submitLogin Invoked");
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
+            app.getHelperUser().clickOkButton(app.getWait());
+        logger.info("   PositiveRegTest successfully with credentials: Email: "
+                + user.getEmail() + " & Password: " + user.getPassword());
+    }
+	
 
-    @Test (groups = {"smoke","positive"})
+//	@Test (groups = {"negative", "regress"},
+//			dataProvider = "userDtoNeg",
+//			dataProviderClass = ProviderData.class)
+//    public void PositiveRegDtoTest(User user){
+//        app.getHelperUser().openRegistrationForm();
+//        logger.info("openRegistrationForm invoked");
+//        app.getHelperUser().fillRegForm(user);
+//        logger.info("fillRegForm invoked");
+//        app.getHelperUser().pause(1000);
+//        app.getHelperUser().submitLogin();
+//        logger.info("submitLogin Invoked");
+//        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
+//
+//        logger.info("   PositiveRegTest successfully with credentials: Email: "
+//                + user.getEmail() + " & Password: " + user.getPassword());
+//    }
+
+    @Test (groups = {"regress","positive"})
     public void PositiveRegTest(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
@@ -32,25 +66,11 @@ public class RegistrationTests extends TestBase{
     app.getHelperUser().submitLogin();
             logger.info("submitLogin Invoked");
         Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
-
+        app.getHelperUser().clickOkButton(app.getWait());
         logger.info("PositiveRegTest successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
     }
-
-    @Test (dataProvider = "userRegDtoCSV",dataProviderClass = ProviderData.class)
-    public void PositiveRegDTOTest(User user){
-        app.getHelperUser().openRegistrationForm();
-        logger.info("openRegistrationForm invoked");
-        app.getHelperUser().fillRegForm(user);
-        logger.info("fillRegForm invoked");
-        app.getHelperUser().pause(1000);
-        app.getHelperUser().submitLogin();
-        logger.info("submitLogin Invoked");
-        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
-
-        logger.info("PositiveRegTest successfully with credentials: Email: "
-                + user.getEmail() + " & Password: " + user.getPassword());
-    }
+	
 
     @Test (groups = {"regress","negative"})
     public void NegativeRegTestWrongEmail(){
@@ -65,10 +85,9 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().submitLogin();
         app.getHelperUser().pause(2000);
         Assert.assertFalse(app.getHelperUser().isLoggedSuccess());
+        app.getHelperUser().clickOkButton(app.getWait());
         logger.info("NegativeRegTestWrongEmail successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
-        app.getHelperUser().clickOkButton();
-
     }
 
     @Test (groups = {"regress","negative"})
@@ -84,7 +103,7 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().submitLogin();
         app.getHelperUser().pause(2000);
        Assert.assertTrue(app.getHelperUser().isPasswordWrong());
-        app.getHelperUser().clickOkButton();
+        app.getHelperUser().clickOkButton(app.getWait());
         logger.info("NegativeRegTestWrongPassword successfully with credentials: Email: "
                 + user.getEmail() + " & Password: " + user.getPassword());
     }

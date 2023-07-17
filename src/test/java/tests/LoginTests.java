@@ -10,18 +10,38 @@ import org.testng.annotations.*;
 
 public class LoginTests extends TestBase {
 
-@BeforeMethod (alwaysRun = true)
+@BeforeMethod
 public void precondition(){
     if(app.getHelperUser().isLogged())
         app.getHelperUser().logout();
 }
 
-    @Test (groups = {"smoke","positive"})
-    public void loginPositiveUser() {
-//        User user = new User("domes7@mail.com","123456Aa$");
-//        user.setName("domes7@mail.com");
-//        user.setPassword("123456Aa$");
+    @Test (groups = {"regress","positive"},
+            dataProvider = "userDtoLogin",
+			dataProviderClass = ProviderData.class)
+    public void loginPositiveUserDTO(User user) {
+//        User user = new User()
+//                .withEmail("domes7@mail.com")
+//                .withPassword("123456Aa$");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
 
+    }
+	
+    @Test (groups = {"regress","negative"},
+            dataProvider = "userDtoNeg",
+			dataProviderClass = ProviderData.class)
+    public void loginNegativeUserDTO(User user) {
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLoggedFailure());
+	}		
+
+    @Test (groups = {"regress","positive"})
+    public void loginPositiveUser() {
         User user = new User()
                 .withEmail("domes7@mail.com")
                 .withPassword("123456Aa$");
@@ -31,25 +51,6 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
     }
 
-    @Test (groups = {"smoke","positive"},
-            dataProvider = "userDto",dataProviderClass = ProviderData.class)
-    public void loginPositiveUserDTO(User user) {
-//        User user = new User()
-//                .withEmail("domes7@mail.com")
-//                .withPassword("123456Aa$");
-        app.getHelperUser().openLoginForm();
-        app.getHelperUser().fillLoginForm(user);
-        app.getHelperUser().submitLogin();
-        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
-    }
-    @Test (groups = {"regress","negative"},
-            dataProvider = "userDtoNegEmail",dataProviderClass = ProviderData.class)
-    public void loginNegativeUserDTO(User user) {
-        app.getHelperUser().openLoginForm();
-        app.getHelperUser().fillLoginForm(user);
-        app.getHelperUser().submitLogin();
-        Assert.assertTrue(app.getHelperUser().isLoggedFailure());
-    }
 
     @Test (groups = {"regress","negative"})
     public void loginNegativeWrongEmail() {
@@ -61,6 +62,7 @@ public void precondition(){
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLoggedFailure());
     }
+	
     @Test (groups = {"regress","negative"})
     public void loginNegativeWrongEmail2() {
         User user = new User()
@@ -75,10 +77,10 @@ public void precondition(){
 
     @AfterMethod (alwaysRun = true)
 public void postcondition(){
-    if(app.getHelperUser().isLoggedSuccess() == true
-    || app.getHelperUser().isLoggedFailure() == true);
+    if(app.getHelperUser().isLoggedSuccess()
+    || app.getHelperUser().isLoggedFailure());
     {
-    app.getHelperUser().clickOkButton();
+    app.getHelperUser().clickOkButton(app.getWait());
     }
 }
 

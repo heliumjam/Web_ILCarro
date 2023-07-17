@@ -29,6 +29,7 @@ public class HelperSearch extends HelperBase{
     By NEXT_MONTH_BTN = By.xpath("//button[@aria-label='Next month']");
 
     WebElement element;
+	
     public void openCarForm(WebDriverWait wait) {
         element =
                 wait.until(ExpectedConditions
@@ -59,13 +60,20 @@ public class HelperSearch extends HelperBase{
     }
 
     public void datesSearchFormThisMonth(WebDriverWait wait){
-      //  wd.findElement(INPUT_DATE).clear();
+		//click - click - clear
+       //wd.findElement(INPUT_DATE).clear();
 
+
+// for reset:
+//        click(INPUT_DATE);
+//        element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='mat-calendar-body-cell-content mat-calendar-body-today']")));
+//        element.click();
+//		        element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='mat-calendar-body-cell-content mat-calendar-body-today']")));
+//				element.click();
+//method:
         click(INPUT_DATE);
-      //  wd.findElement(INPUT_DATE).clear();
+        type(INPUT_DATE,"");
 
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='mat-calendar-body-cell-content mat-calendar-body-today']")));
-        element.click();
         element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='mat-calendar-body-cell-content mat-calendar-body-today']")));
         element.click();
         element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[normalize-space()='27']")));
@@ -212,10 +220,6 @@ public class HelperSearch extends HelperBase{
         click((By.xpath(locatorEndDate)));
 
 
-    }
-    public void clearInput(){
-
-        wd.findElement(INPUT_DATE).clear();
     }
 
 }
