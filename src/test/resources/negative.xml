@@ -5,7 +5,7 @@
     <test name="NegativeTests">
         <groups>
             <run>
-                <exclude name="positive"  />
+                <exclude name="positives"  />
                 <include name="negative"  />
             </run>
         </groups>

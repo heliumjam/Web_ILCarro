@@ -40,15 +40,18 @@ task myTest (type:Test){
         else if (suite.equals('searchcar')){
             suites '/src/test/resources/searchcar.xml'
         }
-        else if (suite.equals('user')){
-            suites '/src/test/resources/user.xml'
+        else if (suite.equals('reg')){
+            suites '/src/test/resources/reg.xml'
         }
-//        else if (suite.equals('negative')){
-//            suites '/src/test/resources/negative.xml'
-//        }
-//        else if (suite.equals('positive')){
-//            suites '/src/test/resources/positive.xml'
-//        }
+        else if (suite.equals('login')){
+            suites '/src/test/resources/login.xml'
+        }
+        else if (suite.equals('negative')){
+            suites '/src/test/resources/negative.xml'
+        }
+        else if (suite.equals('positive')){
+            suites '/src/test/resources/positive.xml'
+        }
 //        else if (suite.equals('regress')){
 //            suites '/src/test/resources/regress.xml'
 //        }
@@ -57,7 +60,9 @@ task myTest (type:Test){
         }
     }
     if(project.hasProperty('browser')){
-        systemProperty'browser',"$browser"
+        systemProperty'browser',"{$browser}"
     }
-
+    if(project.hasProperty('target')){
+        systemProperty 'target',"${target}"
+    }
 }

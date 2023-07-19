@@ -10,13 +10,13 @@ import org.testng.annotations.*;
 
 public class LoginTests extends TestBase {
 
-@BeforeMethod
+@BeforeMethod (alwaysRun = true)
 public void precondition(){
     if(app.getHelperUser().isLogged())
         app.getHelperUser().logout();
 }
 
-    @Test (groups = {"regress","positive"},
+    @Test (groups = {"regress","positives"},
             dataProvider = "userDtoLogin",
 			dataProviderClass = ProviderData.class)
     public void loginPositiveUserDTO(User user) {
@@ -27,7 +27,16 @@ public void precondition(){
         app.getHelperUser().fillLoginForm(user);
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
-
+    }
+    @Test (groups = {"regress","positives"})
+    public void loginPositiveProps() {
+//        User user = new User()
+//                .withEmail("domes7@mail.com")
+//                .withPassword("123456Aa$");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(app.getEmail(), app.getPassword());
+        app.getHelperUser().submitLogin();
+        Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
     }
 	
     @Test (groups = {"regress","negative"},
@@ -40,7 +49,7 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isLoggedFailure());
 	}		
 
-    @Test (groups = {"regress","positive"})
+    @Test (groups = {"regress","positives"})
     public void loginPositiveUser() {
         User user = new User()
                 .withEmail("domes7@mail.com")
@@ -63,7 +72,7 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isLoggedFailure());
     }
 	
-    @Test (groups = {"regress","negative"})
+    @Test (groups = {"negative","regress"})
     public void loginNegativeWrongEmail2() {
         User user = new User()
                 .withEmail("domes@mail.com")

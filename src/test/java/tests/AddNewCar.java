@@ -19,7 +19,7 @@ public class AddNewCar extends TestBase{
         app.getHelperUser().clickOkButton(app.getWait());}
     }
 
-    @Test (groups = {"regress","positive"})
+    @Test (groups = {"regress","positives"})
     public void addNewCarPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         Car car = Car.builder()

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class TestBase {
@@ -15,23 +16,23 @@ public class TestBase {
             System.getProperty("browser", BrowserType.CHROME)
     );
 
-    @BeforeSuite()
-    public void setUp(){
+    @BeforeSuite(alwaysRun = true)
+    public void setUp() throws IOException {
         app.init();
 
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void stop(){
         app.tearDown();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void startlogger(Method method){
         logger.info("Method "+ method.getName() +" is started ");
 
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void end(Method method){
         logger.info("=====================end==method======================== ");
 

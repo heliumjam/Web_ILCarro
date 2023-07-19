@@ -2,7 +2,7 @@
 myTest
 
 groups:
-"smoke","positive"
+"smoke","positives"
 "regress","negative"
 
 suites:

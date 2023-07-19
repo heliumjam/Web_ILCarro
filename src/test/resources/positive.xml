@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="ProductionSuite" verbose="1" >
+<suite name="SmokeSuite" verbose="1" >
     <test name="PositiveTests">
         <groups>
             <run>
                 <exclude name="negative"  />
-                <include name="positive"  />
+                <include name="positives"  />
             </run>
         </groups>
 

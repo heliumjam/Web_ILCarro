@@ -4,20 +4,22 @@ import manager.TestNgListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 @Listeners(TestNgListener.class)
 
 public class SearchTests extends TestBase{
 String location = "Tel Aviv";
 
-@BeforeMethod
-public void precondition() {
+@BeforeMethod (alwaysRun = true)
+public void precondition() throws IOException {
 
     app.tearDown();
     app.init();
     app.navigateToMainPage();
 }
 
-    @Test (groups = {"regress","positive"})
+    @Test (groups = {"regress","positives"})
     public void findCarPasteGeneratedDates(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -26,7 +28,7 @@ public void precondition() {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-   @Test (groups = {"regress","positive"})
+   @Test (groups = {"regress","positives"})
     public void findCarInThisMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -35,7 +37,7 @@ public void precondition() {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"regress","positive"})
+    @Test (groups = {"regress","positives"})
     public void findCarInNextMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -44,14 +46,14 @@ public void precondition() {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"regress","positive"})
+    @Test (groups = {"regress","positives"})
     public void searchPositiveTestL(){
         app.getHelperSearch().fillSearchFormLesson("Tel Aviv", "07/20/2023","03/30/2024");
         app.getHelperSearch().clickSubmitYallaButtom(app.getWait());
 
     }
 
-    @AfterTest
+    @AfterTest (alwaysRun = true)
     public void postTests(){
     app.tearDown();
     }
