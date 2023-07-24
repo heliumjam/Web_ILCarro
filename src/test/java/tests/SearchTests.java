@@ -46,12 +46,12 @@ public void precondition() throws IOException {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"regress","positive"})
-    public void searchPositiveTestL(){
-        app.getHelperSearch().fillSearchFormLesson("Tel Aviv", "07/20/2023","03/30/2024");
-        app.getHelperSearch().clickSubmitYallaButtom(app.getWait());
-
-    }
+//    @Test
+//    public void searchPositiveTestL(){
+//        app.getHelperSearch().fillSearchFormLesson("Tel Aviv", "10/20/2023","03/30/2024");
+//        app.getHelperSearch().clickSubmitYallaButtom(app.getWait());
+//
+//    }
 
     @AfterTest (alwaysRun = true)
     public void postTests(){

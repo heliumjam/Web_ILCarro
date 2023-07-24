@@ -13,10 +13,10 @@ user
 -Ptarget=pre_prod
 
 
-All Positive tests -chrome
++ All Positive tests -chrome
   ./gradlew clean -Pbrowser=chrome -Dsuite=positive myTest
 
-All Negative tests -firefox
++ All Negative tests -firefox
   ./gradlew clean -Pbrowser=firefox -Dsuite=negative myTest
 
 /// All Tests (Regress) -chrome
