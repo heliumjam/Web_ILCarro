@@ -60,7 +60,7 @@ task myTest (type:Test){
         }
     }
     if(project.hasProperty('browser')){
-        systemProperty'browser',"{$browser}"
+        systemProperty'browser',"${browser}"
     }
     if(project.hasProperty('target')){
         systemProperty 'target',"${target}"

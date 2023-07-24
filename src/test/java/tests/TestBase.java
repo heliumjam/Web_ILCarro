@@ -33,7 +33,7 @@ public class TestBase {
 
     }
     @AfterMethod(alwaysRun = true)
-    public void end(Method method){
+    public void endLogger(Method method){
         logger.info("=====================end==method======================== ");
 
     }
