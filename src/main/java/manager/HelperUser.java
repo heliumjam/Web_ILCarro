@@ -25,7 +25,6 @@ public class HelperUser extends HelperBase {
     public void fillLoginForm(String email, String password){
         type(By.xpath("//input[@id='email']"), email);
         type(By.xpath("//input[@id='password']"), password);
-
     }
     //overloading
     public void fillLoginForm(User user) {
@@ -39,15 +38,14 @@ public class HelperUser extends HelperBase {
 //        wd.findElement(By.xpath("//*[.=' Log in ']")).click();
 //        wd.findElement(By.xpath("//*[.='Click here']")).click();
     }
+
     public void fillRegForm(User user) {
         type(By.xpath("(//input[@id='name'])"), user.getName());
         type(By.xpath("(//input[@id='lastName'])"), user.getLastName());
         type(By.xpath("(//input[@id='email'])"), user.getEmail());
         type(By.xpath("//input[@id='password']"), user.getPassword());
         clickTermsOfUse();
-
     }
-
 
     public void clickTermsOfUse() {
         //var1
@@ -61,8 +59,6 @@ public class HelperUser extends HelperBase {
 //        int y = rect.getY() + rect.getHeight() /4; //px
 //        Actions actions = new Actions(wd);
 //        actions.moveByOffset(x, y).click().perform();
-
-
     }
 
     // method signature = type + name + parameters types
@@ -104,9 +100,9 @@ public class HelperUser extends HelperBase {
         return isElementPresent(By.xpath("//div[contains(text(),'Password must contain')]"));
     }
 
-    public void login(User user){
+    public void login(String email, String password){
         openLoginForm();
-        fillLoginForm(user);
+        fillLoginForm(email,password);
         submitLogin();
     }
 

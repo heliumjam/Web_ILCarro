@@ -52,9 +52,9 @@ task myTest (type:Test){
         else if (suite.equals('positive')){
             suites '/src/test/resources/positive.xml'
         }
-//        else if (suite.equals('regress')){
-//            suites '/src/test/resources/regress.xml'
-//        }
+        else if (suite.equals('regress')){
+            suites '/src/test/resources/regress.xml'
+        }
         else {
             suites'/src/test/resources/testng.xml'
         }

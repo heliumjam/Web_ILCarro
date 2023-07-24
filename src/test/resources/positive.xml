@@ -5,7 +5,7 @@
         <groups>
             <run>
                 <exclude name="negative"  />
-                <include name="positives"  />
+                <include name="positive"  />
             </run>
         </groups>
 

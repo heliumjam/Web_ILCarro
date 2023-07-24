@@ -30,19 +30,10 @@ public class ApplicationManager {
 
     Properties properties;
 
-    public String getEmail(){
-        return properties.getProperty("web.email");
-    }
-    public String getPassword(){
-        return properties.getProperty("web.password");
-    }
-
     public ApplicationManager(String browser) {
         this.browser = browser;
         properties = new Properties();
     }
-
-    public WebDriverWait getWait() {return wait;}
     public HelperUser getHelperUser() {
         return helperUser;
     }
@@ -55,14 +46,25 @@ public class ApplicationManager {
         return helperSearch;
     }
 
-    @BeforeSuite
+    public WebDriverWait getWait() {return wait;}
+
+    public String getEmail(){
+        return properties.getProperty("web.email");
+    }
+
+    public String getPassword(){
+        return properties.getProperty("web.password");
+    }
+ ////////////////////////////////////////
+    @BeforeSuite (alwaysRun = true)
     public void init() throws IOException {
         //L16 Add properties to the project
   //      properties.load(new FileReader(new File("src/test/resources/prod.properties")));
 //         target - what file we want to use?
         String target = System.getProperty("target", "prod");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
-     //   wd = new ChromeDriver();
+
+        //   wd = new ChromeDriver();
         if (browser.equals(BrowserType.CHROME)){
             wd = new EventFiringWebDriver(new ChromeDriver());
             logger.info("Tests Using Chrome");
@@ -73,6 +75,7 @@ public class ApplicationManager {
             wd = new EventFiringWebDriver(new EdgeDriver());
             logger.info("Tests Using Edge");
         }
+
         wd.register(new WebDriverListener()); // connection LISTENER
         helperUser = new HelperUser(wd);
         helperCar = new HelperCar(wd);
@@ -89,7 +92,7 @@ public class ApplicationManager {
         wd.navigate().to(properties.getProperty("web.baseURL"));
     }
 
-    @AfterSuite
+    @AfterSuite  (alwaysRun = true)
     public void tearDown(){
       wd.quit();
     }

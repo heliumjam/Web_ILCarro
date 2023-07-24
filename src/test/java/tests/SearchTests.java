@@ -19,7 +19,7 @@ public void precondition() throws IOException {
     app.navigateToMainPage();
 }
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void findCarPasteGeneratedDates(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -28,7 +28,7 @@ public void precondition() throws IOException {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-   @Test (groups = {"regress","positives"})
+   @Test (groups = {"regress","positive"})
     public void findCarInThisMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -37,7 +37,7 @@ public void precondition() throws IOException {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void findCarInNextMonth(){
         app.getHelperSearch().openCarForm(app.getWait());
        app.getHelperSearch().fillCitySearchForm(location,app.getWait());
@@ -46,7 +46,7 @@ public void precondition() throws IOException {
         Assert.assertTrue(app.getHelperSearch().isElementFilterPresent());
     }
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void searchPositiveTestL(){
         app.getHelperSearch().fillSearchFormLesson("Tel Aviv", "07/20/2023","03/30/2024");
         app.getHelperSearch().clickSubmitYallaButtom(app.getWait());

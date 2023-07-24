@@ -50,7 +50,7 @@ public class RegistrationTests extends TestBase{
 //                + user.getEmail() + " & Password: " + user.getPassword());
 //    }
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void PositiveRegTest(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()

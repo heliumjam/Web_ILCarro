@@ -13,13 +13,15 @@ public class AddNewCar extends TestBase{
     @BeforeMethod (alwaysRun = true)
     public void precondition(){
         if(!app.getHelperUser().isLogged()){
-            app.getHelperUser().login(new User()
-                    .withEmail("domes7@mail.com")
-                    .withPassword("123456Aa$"));
-        app.getHelperUser().clickOkButton(app.getWait());}
+//            app.getHelperUser().login(new User()
+//                    .withEmail("domes7@mail.com")
+//                    .withPassword("123456Aa$"));
+            //Properties
+            app.getHelperUser().login(app.getEmail(), app.getPassword());
+            app.getHelperUser().clickOkButton(app.getWait());}
     }
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void addNewCarPositive(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         Car car = Car.builder()

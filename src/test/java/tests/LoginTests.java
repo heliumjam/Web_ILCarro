@@ -16,7 +16,7 @@ public void precondition(){
         app.getHelperUser().logout();
 }
 
-    @Test (groups = {"regress","positives"},
+    @Test (groups = {"regress","positive"},
             dataProvider = "userDtoLogin",
 			dataProviderClass = ProviderData.class)
     public void loginPositiveUserDTO(User user) {
@@ -28,11 +28,9 @@ public void precondition(){
         app.getHelperUser().submitLogin();
         Assert.assertTrue(app.getHelperUser().isLoggedSuccess());
     }
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void loginPositiveProps() {
-//        User user = new User()
-//                .withEmail("domes7@mail.com")
-//                .withPassword("123456Aa$");
+//        lesson 16
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm(app.getEmail(), app.getPassword());
         app.getHelperUser().submitLogin();
@@ -49,7 +47,7 @@ public void precondition(){
         Assert.assertTrue(app.getHelperUser().isLoggedFailure());
 	}		
 
-    @Test (groups = {"regress","positives"})
+    @Test (groups = {"regress","positive"})
     public void loginPositiveUser() {
         User user = new User()
                 .withEmail("domes7@mail.com")
