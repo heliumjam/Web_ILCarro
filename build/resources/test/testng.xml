@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ProductionSuite" verbose="1" >
+    <test name="FullPackage" >
+        <classes>
+            <class name="tests.AddNewCar" />
+        </classes>
+    </test>
+</suite>

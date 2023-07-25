@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ProductionSuite" verbose="1" >
+    <test name="RegressPackage" >
+    <groups>
+        <run>
+            <include name="regress"  />
+        </run>
+    </groups>
+
+        <classes>
+            <class name="tests.LoginTests" />
+            <class name="tests.RegistrationTests" />
+            <class name="tests.AddNewCar" />
+            <class name="tests.SearchTests" />
+        </classes>
+    </test>
+</suite>

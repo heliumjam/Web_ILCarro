@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.RegistrationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-24T18:17:09" hostname="MIRI" time="2.246">
+  <properties/>
+  <testcase name="PositiveRegTest" classname="tests.RegistrationTests" time="2.246"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
