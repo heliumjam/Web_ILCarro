@@ -1,5 +1,6 @@
 package manager;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,8 +21,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
-   // WebDriver wd;
-    EventFiringWebDriver wd;
+   WebDriver wd;
+   // EventFiringWebDriver wd;
     HelperUser helperUser;
     HelperCar helperCar;
     String browser;
@@ -64,7 +65,7 @@ public class ApplicationManager {
         String target = System.getProperty("target", "prod");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-        //   wd = new ChromeDriver();
+           wd = new ChromeDriver();
         if (browser.equals(BrowserType.CHROME)){
             wd = new EventFiringWebDriver(new ChromeDriver());
             logger.info("Tests Using Chrome");
@@ -76,7 +77,7 @@ public class ApplicationManager {
             logger.info("Tests Using Edge");
         }
 
-        wd.register(new WebDriverListener()); // connection LISTENER
+     //   wd.register(new WebDriverListener()); // connection LISTENER
         helperUser = new HelperUser(wd);
         helperCar = new HelperCar(wd);
         helperSearch = new HelperSearch(wd);
